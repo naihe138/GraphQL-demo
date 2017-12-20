@@ -17,11 +17,10 @@ app.use(KoaStatic(__dirname + '/public'));
 
 
 router.post('/saveinfo', saveInfo)
-router.get('/info', fetchInfo)
-
-router.post('/savestudent', saveStudent)
-router.get('/student', fetchStudent)
-router.get('/studentDetail', fetchStudentDetail)
+      .get('/info', fetchInfo)
+      .post('/savestudent', saveStudent)
+      .get('/student', fetchStudent)
+      .get('/studentDetail', fetchStudentDetail)
 
 app
   .use(router.routes())
