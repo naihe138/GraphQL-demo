@@ -16,11 +16,12 @@
           url: '/graphql',
           data: {
             query: `query{
-                    infos{
-                      _id
-                      height
-                    }
-                  }`
+                      infos{
+                        _id
+                        height
+                        weight
+                      }
+                    }`
           },
           success:function (r){
             console.log(r)

@@ -4,7 +4,7 @@ import config from '../config'
 require('./schema/info')
 require('./schema/student')
 
-export const database = () => {
+const database = () => {
   mongoose.set('debug', true)
 
   mongoose.connect(config.dbPath)
@@ -20,3 +20,5 @@ export const database = () => {
     console.log('Connected to MongoDB ', config.dbPath)
   })
 }
+
+database()

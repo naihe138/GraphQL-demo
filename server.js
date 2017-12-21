@@ -3,9 +3,7 @@ import KoaStatic from 'koa-static'
 import Router from 'koa-router'
 import bodyParser from 'koa-bodyparser'
 
-import {database} from './mongodb'
-
-database()
+require('./mongodb')
 
 const GraphqlRouter = require('./router')
 
