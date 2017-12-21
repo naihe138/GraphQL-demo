@@ -8,5 +8,27 @@
 </head>
 <body>
   <h1>GraphQL-demo前端demo</h1>
+  <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
+  <script>
+    window.onload = function () {
+      function a () {
+        $.ajax({
+          url: '/graphql',
+          data: {
+            query: `query{
+                    infos{
+                      _id
+                      height
+                    }
+                  }`
+          },
+          success:function (r){
+            console.log(r)
+          }
+        })
+      }
+      setTimeout(a, 0)
+    }
+  </script>
 </body>
 </html>
