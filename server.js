@@ -4,28 +4,27 @@ import Router from 'koa-router'
 import bodyParser from 'koa-bodyparser'
 
 import {database} from './mongodb'
-import {saveInfo, fetchInfo} from './controllers/info'
-import {saveStudent, fetchStudent, fetchStudentDetail} from './controllers/student'
 
 database()
 
+const GraphqlRouter = require('./router')
+
 const app = new Koa()
 const router = new Router();
+
+const port = 4000
 
 app.use(bodyParser());
 app.use(KoaStatic(__dirname + '/public'));
 
 
-router.post('/saveinfo', saveInfo)
-      .get('/info', fetchInfo)
-      .post('/savestudent', saveStudent)
-      .get('/student', fetchStudent)
-      .get('/studentDetail', fetchStudentDetail)
 
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
 
-app.listen(4000);
+router.use('', GraphqlRouter.routes())
 
-console.log('pwa server listen port: ' + 4000)
+app.use(router.routes())
+   .use(router.allowedMethods());
+
+app.listen(port);
+
+console.log('GraphQL-demo server listen port: ' + port)
