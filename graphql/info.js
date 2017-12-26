@@ -39,7 +39,7 @@ const objType = new GraphQLObjectType({
   }
 })
 
-let InfoType = new GraphQLObjectType({
+export let InfoType = new GraphQLObjectType({
   name: 'Info',
   fields: {
     _id: {

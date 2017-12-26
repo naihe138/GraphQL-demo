@@ -11,7 +11,7 @@ export const saveCourse = async (ctx, next) => {
   if (saveCourse) {
     ctx.body = {
       success: true,
-      student: saveCourse
+      data: saveCourse
     }
   } else {
     ctx.body = {
@@ -26,7 +26,7 @@ export const fetchCourse = async (ctx, next) => {
   if (courses.length) {
     ctx.body = {
       success: true,
-      student: courses
+      data: courses
     }
   } else {
     ctx.body = {

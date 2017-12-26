@@ -5,6 +5,7 @@ import {
 
 import {info, infos} from './info'
 import {course} from './course'
+import {student} from './student'
 
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -12,7 +13,8 @@ export default new GraphQLSchema({
     fields: {
       infos,
       info,
-      course
+      course,
+      student
     }
   })
 })

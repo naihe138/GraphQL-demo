@@ -12,7 +12,7 @@ export const saveInfo = async (ctx, next) => {
   if (saveInfo) {
     ctx.body = {
       success: true,
-      info: saveInfo
+      data: saveInfo
     }
   } else {
     ctx.body = {
@@ -28,7 +28,7 @@ export const fetchInfo = async (ctx, next) => {
   if (infos.length) {
     ctx.body = {
       success: true,
-      info: infos
+      data: infos
     }
   } else {
     ctx.body = {

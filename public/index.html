@@ -12,44 +12,24 @@
   <div id="app">
     <div class="course list">
       <h3>课程列表</h3>
-      <ul>
-        <li>asdasd</li>
+      <ul id="courseList">
+        <li>暂无数据....</li>
       </ul>
     </div>
     <div class="student list">
       <h3>班级学生列表</h3>
-      <ul>
-        <li>123123</li>
+      <ul id="studentList">
+        <li>暂无数据....</li>
       </ul>
     </div>
   </div>
   <div class="btnbox">
-    <div class="btn">点击常规获取课程列表</div>
-    <div class="btn">点击常规获取班级学生列表</div>
-    <div class="btn">点击grapph一次获取所有数据，问你怕不怕？</div>
+    <div class="btn" id="btn1">点击常规获取课程列表</div>
+    <div class="btn" id="btn2">点击常规获取班级学生列表</div>
+    <div class="btn" id="btn3">点击graphQL一次获取所有数据，问你怕不怕？</div>
   </div>
+  <div class="toast"></div>
   <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
-  <script>
-    window.onload = function () {
-      function a () {
-        $.ajax({
-          url: '/graphql',
-          data: {
-            query: `query{
-                      infos{
-                        _id
-                        height
-                        weight
-                      }
-                    }`
-          },
-          success:function (r){
-            console.log(r)
-          }
-        })
-      }
-      setTimeout(a, 0)
-    }
-  </script>
+  <script src="./js/index.js"></script>
 </body>
 </html>
