@@ -23,12 +23,36 @@
     }
     .list{
       border: 1px solid rgb(2, 145, 228);
-      width: 300px;
+      width: 500px;
       margin: 10px;
     }
     .list h3{
       text-align: center;
       background: rgb(2, 145, 228);
+      color: #ffffff;
+      line-height: 46px;
+    }
+    .list li {
+      line-height: 40px;
+      border-bottom: 1px solid #eeeeee;
+      cursor: pointer;
+      transition: 0.5s;
+      padding: 0 20px;
+    }
+    .list li:hover{
+      background: #1ac4f9
+    }
+    .btnbox{
+      text-align: center;
+    }
+    .btnbox .btn{
+      width: 500px;
+      height: 40px;
+      margin: 10px auto;
+      border-radius: 10px;
+      background: #1ac4f9;
+      color: #ffffff;
+      line-height: 40px;
     }
   </style>
 </head>
@@ -45,8 +69,17 @@
       <h3>班级学生列表</h3>
       <ul>
         <li>123123</li>
+        <li>123123</li>
+        <li>123123</li>
+        <li>123123</li>
+        <li>123123</li>
       </ul>
     </div>
+  </div>
+  <div class="btnbox">
+    <div class="btn">点击常规获取课程列表</div>
+    <div class="btn">点击常规获取班级学生列表</div>
+    <div class="btn">点击grapph一次获取所有数据，问你怕不怕？</div>
   </div>
   <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
   <script>
