@@ -44,6 +44,6 @@ git clone https://github.com/naihe138/GraphQL-demo.git
 
 npm install 
 
-npm start
+node start
 
 ````
