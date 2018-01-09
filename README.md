@@ -40,7 +40,7 @@ GraphQL一种用为你 API 而生的查询语言，2018已经到来，PWA还没�
 ## install 
 
 ````
-npm clone https://github.com/naihe138/GraphQL-demo.git
+git clone https://github.com/naihe138/GraphQL-demo.git
 
 npm install 
 
