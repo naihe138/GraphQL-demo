@@ -12,7 +12,7 @@ const router = new Router()
 const apollo = new ApolloServer({ typeDefs, resolvers })
 
 app.use(bodyParser());
-app.use(KoaStatic(__dirname + '/public'));
+app.use(KoaStatic(__dirname + '/static'));
 
 // 路由配置
 router.use(routerMap.routes())
