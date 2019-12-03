@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
@@ -27,7 +26,6 @@ InfoSchema.pre('save', function (next) {
   } else {
     this.meta.updatedAt = Date.now()
   }
-
   next()
 })
 
