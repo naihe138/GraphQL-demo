@@ -225,6 +225,12 @@ window.onload = function () {
             }
           })
         } else {
+          $('#i_height').val('')
+          $('#i_weight').val('')
+          let checkboxs = $('#side3 input[name="hobby"]')
+          for (let i = 0; i < 4; i++) {
+            checkboxs[i].checked = false
+          }
           isAddInfo = true
         }
       })
@@ -256,7 +262,7 @@ window.onload = function () {
                 id: "${infoId}", 
                 height: "${height}", 
                 weight: "${weight}",
-                hobby: "${hobby}"
+                hobby: ${hobby}
               ) {
                 height
                 weight
