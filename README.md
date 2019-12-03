@@ -14,21 +14,21 @@
 
 * query
 
-![](./view-demo/query.gif)
+![](http://img.store.naice.me/query.gif)
 
 
 * addStudent
 
-![](./view-demo/addstudent.gif)
+![](http://img.store.naice.me/addstudent.gif)
 
 * addCourse
 
-![](./view-demo/addcourse.gif)
+![](http://img.store.naice.me/addcourse.gif)
 
 
 * FE-demo
 
-![](./view-demo/demo.gif)
+![](http://img.store.naice.me/demo.gif)
 
 ## 使用方法
 
