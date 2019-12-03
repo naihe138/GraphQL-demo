@@ -7,11 +7,6 @@ const StudentSchema = new Schema({
   name: String,
   sex: String,
   age: Number,
-  // 学生附加信息
-  info: {
-    type: ObjectId,
-    ref: 'Info'
-  },
   meta: {
     createdAt: {
       type: Date,

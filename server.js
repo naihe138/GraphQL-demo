@@ -2,25 +2,28 @@ const Koa = require('koa')
 const KoaStatic = require('koa-static')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
-
+const { ApolloServer, gql } = require('apollo-server-koa')
 require('./mongodb')
-
-const GraphqlRouter = require('./router')
-
+const routerMap = require('./router')
+const { typeDefs, resolvers } = require('./graphql/schema')
 const app = new Koa()
-const router = new Router();
+const router = new Router()
 
-const port = 4000
+const apollo = new ApolloServer({ typeDefs, resolvers })
 
 app.use(bodyParser());
 app.use(KoaStatic(__dirname + '/public'));
 
+// 路由配置
+router.use(routerMap.routes())
 
-router.use('', GraphqlRouter.routes())
-
+// 使用路由
 app.use(router.routes())
-   .use(router.allowedMethods());
+app.use(router.allowedMethods())
+// 使用apollo
+app.use(apollo.getMiddleware())
 
-app.listen(port);
-
-console.log('GraphQL-demo server listen port: ' + port)
+app.listen(4000, () => {
+   console.log('GraphQL-demo server listen at http://localhost:4000\n')
+   console.log(`🚀 Server ready at http://localhost:4000${apollo.graphqlPath}`)
+})

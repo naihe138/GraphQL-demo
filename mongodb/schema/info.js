@@ -7,7 +7,8 @@ const ObjectId = Schema.Types.ObjectId
 const InfoSchema = new Schema({
   hobby: [String],
   height: String,
-  weight: Number,
+  weight: String,
+  studentId: ObjectId,
   meta: {
     createdAt: {
       type: Date,
