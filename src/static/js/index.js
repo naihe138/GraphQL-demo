@@ -204,14 +204,13 @@ window.onload = function () {
   }
   let isAddInfo = false
   let infoId = null
+  // 打开学生info
   $('#studentList').click(e => {
     if (e.target.nodeName === 'A') {
-      // 
       $('#side3').css({
         transform: 'translateX(0px)'
       })
       getStudentInfo(e.target.dataset.id).then(res => {
-        console.log(res)
         infoId = e.target.dataset.id
         if (res) {
           isAddInfo = false
@@ -302,6 +301,12 @@ window.onload = function () {
         }
       })
     }
+  })
+
+  $('#closeInfo').click(() => {
+    $('#side3').css({
+      transform: 'translateX(-320px)'
+    })
   })
 
   function getStudentInfo (id) {
