@@ -36,6 +36,7 @@ const typeDefs = gql`
     addCourse(post: CourseInput): Course,
     addStudent(post: StudentInput): Student
     addStudentInfo(id: ID, height: String, weight: String, hobby: [String]): Info
+    changeStudentInfo(id: ID, height: String, weight: String, hobby: [String]): Info
   }
   input CourseInput {
     title: String
@@ -78,6 +79,10 @@ const resolvers = {
     addStudentInfo: (parent, args, context) => {
       const { id, height, weight, hobby } = args
       return InfoModel.create({ hobby, height, weight, studentId: id })
+    },
+    changeStudentInfo: (parent, args, context) => {
+      const { id, height, weight, hobby } = args
+      return InfoModel.findOneAndUpdate({studentId: id }, { hobby, height, weight })
     }
   }
 }

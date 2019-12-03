@@ -24,6 +24,7 @@ window.onload = function () {
             name
             sex
             age
+            _id
           }
         }`
       },
@@ -201,11 +202,128 @@ window.onload = function () {
       }
     })
   }
+  let isAddInfo = false
+  let infoId = null
+  $('#studentList').click(e => {
+    if (e.target.nodeName === 'A') {
+      // 
+      $('#side3').css({
+        transform: 'translateX(0px)'
+      })
+      getStudentInfo(e.target.dataset.id).then(res => {
+        console.log(res)
+        infoId = e.target.dataset.id
+        if (res) {
+          isAddInfo = false
+          $('#i_height').val(res.height)
+          $('#i_weight').val(res.weight)
+          let checkboxs = $('#side3 input[name="hobby"]')
+          res.hobby.forEach(item => {
+            for (let i = 0; i < 4; i++) {
+              if (checkboxs[i].value === item) {
+                checkboxs[i].checked = true
+              }
+            }
+          })
+        } else {
+          isAddInfo = true
+        }
+      })
+    }
+  })
+
+  // 新增学生信息
+  $('#qal_add_student_info').click(() => {
+    const height = $('#i_height').val()
+    const weight = $('#i_weight').val()
+    let hobby = []
+    let checkboxs = $('#side3 input[name="hobby"]')
+    for (let i = 0; i < 4; i++) {
+      if (checkboxs[i].checked === true) {
+        hobby.push(checkboxs[i].value)
+      }
+    }
+    hobby = JSON.stringify(hobby)
+    // 新增
+    if (isAddInfo) {
+      $.ajax({
+        url: '/graphql',
+        contentType: 'application/json',
+        type:'POST',
+        data: JSON.stringify({
+          query: `
+            mutation {
+              addStudentInfo(
+                id: "${infoId}", 
+                height: "${height}", 
+                weight: "${weight}",
+                hobby: "${hobby}"
+              ) {
+                height
+                weight
+                hobby
+              }
+            }
+          `
+        }),
+        success:function (){
+          getStudent()
+          $('#side3').css({
+            transform: 'translateX(-320px)'
+          })
+        }
+      })
+    } else { // 修改
+      $.ajax({
+        url: '/graphql',
+        contentType: 'application/json',
+        type:'POST',
+        data: JSON.stringify({
+          query: `
+            mutation {
+              changeStudentInfo(
+                id: "${infoId}", 
+                height: "${height}", 
+                weight: "${weight}",
+                hobby: ${hobby}
+              ) {
+                height
+                weight
+                hobby
+              }
+            }
+          `
+        }),
+        success:function (){
+          getStudent()
+          $('#side3').css({
+            transform: 'translateX(-320px)'
+          })
+        }
+      })
+    }
+  })
+
+  function getStudentInfo (id) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: '/studentInfo',
+        data: {id: id},
+        success:function (res){
+          if (res.success) {
+            resolve(res.data)
+          } else {
+            resolve(false)
+          }
+        }
+      })
+    })
+  }
 
   function renderStudent (data) {
     var str = ''
     data.forEach(function(item) {
-      str += '<li>姓名：'+item.name+'，性别：'+item.sex+'，年龄：'+item.age+'</li>'
+      str += `<li>姓名：${item.name}，性别：${item.sex}，年龄：${item.age}<a data-id="${item._id}">查看info</a></li>`
     })
     $('#studentList').html(str)
   }
@@ -217,5 +335,4 @@ window.onload = function () {
     })
     $('#courseList').html(str)
   }
-
 }

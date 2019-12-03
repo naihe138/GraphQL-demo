@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const Student = mongoose.model('Student')
+const Info = mongoose.model('Info')
 
 const saveStudent = async (ctx, next) => {
   const opts = ctx.request.body
@@ -35,17 +36,12 @@ const fetchStudent = async (ctx, next) => {
   }
 }
 
-
 const fetchStudentDetail = async (ctx, next) => {
-  const students = await Student.find({}).populate({
-    path: 'info',
-    select: 'hobby height weight'
-  }).exec()
-
-  if (students.length) {
+  const info = await Info.find({studentId: ctx.request.query.id})
+  if (info.length) {
     ctx.body = {
       success: true,
-      data: students
+      data: info[0]
     }
   } else {
     ctx.body = {

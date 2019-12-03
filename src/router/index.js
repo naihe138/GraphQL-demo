@@ -8,7 +8,7 @@ router.post('/saveinfo', saveInfo)
 router.get('/info', fetchInfo)
 router.post('/savestudent', saveStudent)
 router.get('/student', fetchStudent)
-router.get('/studentDetail', fetchStudentDetail)
+router.get('/studentInfo', fetchStudentDetail)
 router.post('/savescourse', saveCourse)
 router.get('/course', fetchCourse)
 

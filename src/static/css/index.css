@@ -34,6 +34,12 @@ li{
 .list li:hover{
   background: #1ac4f9
 }
+.list li a {
+  color: #1ac4f9;
+}
+.list li:hover a{
+  color: #ffffff
+}
 .btnbox{
   text-align: center;
 }
