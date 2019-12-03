@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Student = mongoose.model('Student')
 
-export const saveStudent = async (ctx, next) => {
+const saveStudent = async (ctx, next) => {
   const opts = ctx.request.body
   
   const student = new Student(opts)
@@ -20,7 +20,7 @@ export const saveStudent = async (ctx, next) => {
   }
 }
 
-export const fetchStudent = async (ctx, next) => {
+const fetchStudent = async (ctx, next) => {
   const students = await Student.find({})
 
   if (students.length) {
@@ -36,7 +36,7 @@ export const fetchStudent = async (ctx, next) => {
 }
 
 
-export const fetchStudentDetail = async (ctx, next) => {
+const fetchStudentDetail = async (ctx, next) => {
   const students = await Student.find({}).populate({
     path: 'info',
     select: 'hobby height weight'
@@ -52,4 +52,10 @@ export const fetchStudentDetail = async (ctx, next) => {
       success: false
     }
   }
+}
+
+module.exports = {
+  saveStudent,
+  fetchStudent,
+  fetchStudentDetail
 }

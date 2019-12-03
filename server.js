@@ -1,7 +1,7 @@
-import Koa from 'koa'
-import KoaStatic from 'koa-static'
-import Router from 'koa-router'
-import bodyParser from 'koa-bodyparser'
+const Koa = require('koa')
+const KoaStatic = require('koa-static')
+const Router = require('koa-router')
+const bodyParser = require('koa-bodyparser')
 
 require('./mongodb')
 
@@ -14,8 +14,6 @@ const port = 4000
 
 app.use(bodyParser());
 app.use(KoaStatic(__dirname + '/public'));
-
-
 
 
 router.use('', GraphqlRouter.routes())

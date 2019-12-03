@@ -1,10 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Info = mongoose.model('Info')
 
-export const saveInfo = async (ctx, next) => {
+const saveInfo = async (ctx, next) => {
   const opts = ctx.request.body
-  
   const info = new Info(opts)
   const saveInfo = await info.save()
   console.log(saveInfo)
@@ -21,10 +20,8 @@ export const saveInfo = async (ctx, next) => {
   }
 }
 
-export const fetchInfo = async (ctx, next) => {
-  
+const fetchInfo = async (ctx, next) => {
   const infos = await Info.find({})
-
   if (infos.length) {
     ctx.body = {
       success: true,
@@ -35,4 +32,8 @@ export const fetchInfo = async (ctx, next) => {
       success: false
     }
   }
+}
+module.exports = {
+  saveInfo,
+  fetchInfo
 }

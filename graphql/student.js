@@ -1,4 +1,4 @@
-import {
+const {
   graphql,
   GraphQLSchema,
   GraphQLObjectType,
@@ -8,13 +8,12 @@ import {
   GraphQLNonNull,
   isOutputType,
   GraphQLInt
-} from 'graphql';
+} = require('graphql')
 
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
+const {InfoType} = require('./info')
 
-import {InfoType} from './info'
 const Student = mongoose.model('Student')
-
 
 let StudentType = new GraphQLObjectType({
   name: 'Student',
@@ -38,7 +37,7 @@ let StudentType = new GraphQLObjectType({
 })
 
 
-export const student = {
+const student = {
   type: new GraphQLList(StudentType),
   args: {},
   resolve (root, params, options) {
@@ -47,4 +46,8 @@ export const student = {
       select: 'hobby height weight'
     }).exec()
   }
+}
+
+module.exports = {
+  student
 }

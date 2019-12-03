@@ -1,4 +1,4 @@
-import {
+const {
   graphql,
   GraphQLSchema,
   GraphQLObjectType,
@@ -8,9 +8,9 @@ import {
   GraphQLNonNull,
   isOutputType,
   GraphQLInt
-} from 'graphql';
+} = require('graphql')
 
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 const Course = mongoose.model('Course')
 
 const objType = new GraphQLObjectType({
@@ -50,10 +50,31 @@ let CourseType = new GraphQLObjectType({
 })
 
 
-export const course = {
+const course = {
   type: new GraphQLList(CourseType),
   args: {},
   resolve (root, params, options) {
     return Course.find({}).exec()
   }
+}
+
+const addCourse = {
+  type: new GraphQLList(CourseType),
+  args: {
+    title: { type: new GraphQLNonNull(GraphQLString) },
+    desc: { type: new GraphQLNonNull(GraphQLString) },
+    page: { type: new GraphQLNonNull(GraphQLInt) },
+    author: { type: new GraphQLNonNull(GraphQLString) }
+  },
+  resolve(parent, args) {
+    // const course = new Course(opts)
+    // const saveCourse = await course.save()
+    console.log(111, args)
+    return Course.create(args);
+  }
+}
+
+module.exports = {
+  course,
+  addCourse
 }

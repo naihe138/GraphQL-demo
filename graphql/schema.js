@@ -1,13 +1,10 @@
-import {
-  GraphQLSchema,
-  GraphQLObjectType
-} from 'graphql';
+const { GraphQLSchema, GraphQLObjectType } = require('graphql')
 
-import {info, infos} from './info'
-import {course} from './course'
-import {student} from './student'
+const {info, infos} = require('./info')
+const {course, addCourse} = require('./course')
+const {student} = require('./student')
 
-export default new GraphQLSchema({
+module.exports = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Queries',
     fields: {
@@ -15,6 +12,12 @@ export default new GraphQLSchema({
       info,
       course,
       student
+    }
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutations',
+    fields: {
+      addCourse
     }
   })
 })

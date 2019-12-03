@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-
+// 学生附加信息
 const InfoSchema = new Schema({
   hobby: [String],
   height: String,

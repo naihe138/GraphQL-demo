@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-import config from '../config'
+const mongoose = require('mongoose')
+const config = require('../config')
 
 require('./schema/info')
 require('./schema/student')
@@ -7,9 +7,7 @@ require('./schema/course')
 
 const database = () => {
   mongoose.set('debug', true)
-
   mongoose.connect(config.dbPath)
-
   mongoose.connection.on('disconnected', () => {
     mongoose.connect(config.dbPath)
   })

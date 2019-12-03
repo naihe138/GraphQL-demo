@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-
+// 课程信息
 const CourseSchema = new Schema({
   title: String,
   desc: String,

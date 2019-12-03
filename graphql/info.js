@@ -1,5 +1,5 @@
 
-import {
+const {
   graphql,
   GraphQLSchema,
   GraphQLObjectType,
@@ -8,24 +8,10 @@ import {
   GraphQLList,
   GraphQLNonNull,
   isOutputType
-} from 'graphql';
+} = require('graphql')
+const mongoose = require('mongoose')
 
-import mongoose from 'mongoose'
 const Info = mongoose.model('Info')
-
-
-// const parameterType = new GraphQLObjectType({
-//   name: 'parameters',
-//   fields: {
-//     key: {
-//       type: GraphQLString
-//     },
-//     value: {
-//       type: GraphQLString
-//     }
-//   }
-// })
-
 
 const objType = new GraphQLObjectType({
   name: 'mete',
@@ -39,7 +25,7 @@ const objType = new GraphQLObjectType({
   }
 })
 
-export let InfoType = new GraphQLObjectType({
+let InfoType = new GraphQLObjectType({
   name: 'Info',
   fields: {
     _id: {
@@ -64,7 +50,7 @@ export let InfoType = new GraphQLObjectType({
 })
 
 
-export const infos = {
+const infos = {
   type: new GraphQLList(InfoType),
   args: {},
   resolve (root, params, options) {
@@ -73,7 +59,7 @@ export const infos = {
 }
 
 
-export const info = {
+const info = {
   type: InfoType,
   args: {
     id: {
@@ -86,4 +72,10 @@ export const info = {
       _id: params.id
     }).exec()
   }
+}
+
+module.exports = {
+  infos,
+  info,
+  InfoType
 }

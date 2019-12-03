@@ -47,3 +47,34 @@ li{
   line-height: 40px;
   cursor: pointer;
 }
+
+.side {
+  width: 300px;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px #727272;
+  transform: translateX(-320px);
+  transition: 0.3s;
+}
+
+.clist {
+  text-align: center;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.clist div{
+  padding: 5px 0px;
+}
+
+.clist button{
+  padding: 4px 10px;
+}
+
+.clist input{
+  padding: 2px 4px;
+  font-size: 14px;
+}

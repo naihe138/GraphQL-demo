@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Course = mongoose.model('Course')
 
-export const saveCourse = async (ctx, next) => {
+const saveCourse = async (ctx, next) => {
   const opts = ctx.request.body
   
   const course = new Course(opts)
@@ -20,7 +20,7 @@ export const saveCourse = async (ctx, next) => {
   }
 }
 
-export const fetchCourse = async (ctx, next) => {
+const fetchCourse = async (ctx, next) => {
   const courses = await Course.find({})
 
   if (courses.length) {
@@ -35,3 +35,7 @@ export const fetchCourse = async (ctx, next) => {
   }
 }
 
+module.exports = {
+  saveCourse,
+  fetchCourse
+}

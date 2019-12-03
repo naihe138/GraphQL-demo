@@ -24,11 +24,52 @@
     </div>
   </div>
   <div class="btnbox">
+    <div class="btn" id="btn4">点击添加课程数据</div>
+    <div class="btn" id="btn4">点击添加学生数据</div>
     <div class="btn" id="btn1">点击常规获取课程列表</div>
     <div class="btn" id="btn2">点击常规获取班级学生列表</div>
     <div class="btn" id="btn3">点击graphQL一次获取所有数据，问你怕不怕？</div>
   </div>
   <div class="toast"></div>
+  <div class="side" id="side">
+    <div class="clist">
+      <div>
+        课程：<input id="c_title" type="text">
+      </div>
+      <div>
+        课程描述：<input id="c_desc" type="text">
+      </div>
+      <div>
+        作者：<input id="c_author" type="text">
+      </div>
+      <div>
+        页数：<input id="c_page" type="text">
+      </div>
+      <div>
+        <button id="add_class">常规添加</button>
+        <button id="qal_add_class">gql添加</button>
+        <button id="closeCourse">关闭</button>
+      </div>
+    </div>
+  </div>
+  <div class="side" id="side2">
+    <div class="clist">
+      <div>
+        姓名：<input id="s_name" type="text">
+      </div>
+      <div>
+        性别：<input id="s_sex" type="text">
+      </div>
+      <div>
+        年龄：<input id="s_age" type="text">
+      </div>
+      <div>
+        <button id="add_student">常规添加</button>
+        <button id="qal_add_student">gql添加</button>
+        <button id="closeStudent">关闭</button>
+      </div>
+    </div>
+  </div>
   <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
   <script src="./js/index.js"></script>
 </body>

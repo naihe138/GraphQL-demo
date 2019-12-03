@@ -1,15 +1,24 @@
-const { resolve } = require('path')
-const r = path => resolve(__dirname, path)
+const Koa = require('koa')
+const { ApolloServer, gql } = require('apollo-server-koa')
 
-require('babel-core/register')({
-  'presets': [
-    'stage-3',
-    ["latest-node", { "target": "current" }]
-  ],
-  'plugins': [
-    'transform-decorators-legacy'
-  ]
-})
 
-require('babel-polyfill')
-require('./server')
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`
+
+const resolvers = {
+  Query: {
+    hello: () => 'Hello world!',
+  },
+}
+
+const server = new ApolloServer({ typeDefs, resolvers })
+
+const app = new Koa()
+app.use(server.getMiddleware())
+
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+)
