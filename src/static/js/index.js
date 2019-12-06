@@ -108,8 +108,11 @@ window.onload = function () {
     })
   })
 
-  // 点击添加课程数据
+  // 点击添学生程数据
   $('#btn5').click(() => {
+    $('#s_name').val('')
+    $('#s_sex').val('')
+    $('#s_age').val('')
     $('#side2').css({
       transform: 'translateX(0px)'
     })

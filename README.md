@@ -35,8 +35,8 @@
 ````js
 1、git clone https://github.com/naihe138/GraphQL-demo.git
 
-2、npm install
+2、npm install or yarn
 
-3、node run dev
+3、npm start
 
 ````

@@ -4,14 +4,12 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "dev": "node ./src/app.js"
+    "start": "node ./src/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-server-koa": "^2.9.12",
-    "graphql": "^14.5.8",
-    "graphql-server-koa": "^1.4.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
