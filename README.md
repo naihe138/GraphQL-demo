@@ -1,8 +1,7 @@
 
 这是利用Koa + GraphQL + Apollo-Server实现的，学生信息增、删、改、查的栗子
 
-本栗子将搭配koa实现一个GraphQL查询的例子，逐步从简单Kao服务到Mongodb的数据插入查询再到GraphQL的使用，
-让大家快速看到：
+本栗子将搭配Koa实现一个GraphQL查询，逐步从简单Kao服务、到Mongodb的数据插入查询、再到GraphQL的使用，让大家快速看到：
 
 * 搭建Koa搭建一个后台项目
 * 后台路由简单处理方式
@@ -12,16 +11,16 @@
 
 ## 项目视图
 
-* query
+* 查询
 
 ![](http://img.store.naice.me/query.gif)
 
 
-* addStudent
+* 新增学生
 
 ![](http://img.store.naice.me/addstudent.gif)
 
-* addCourse
+* 新增课程
 
 ![](http://img.store.naice.me/addcourse.gif)
 
