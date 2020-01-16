@@ -13,21 +13,21 @@
 
 * 查询
 
-![](http://img.store.naice.me/query.gif)
+![](https://raw.githubusercontent.com/naihe138/GraphQL-demo/master/view-demo/query.gif)
 
 
 * 新增学生
 
-![](http://img.store.naice.me/addstudent.gif)
+![](https://raw.githubusercontent.com/naihe138/GraphQL-demo/master/view-demo/addstudent.gif)
 
 * 新增课程
 
-![](http://img.store.naice.me/addcourse.gif)
+![](https://raw.githubusercontent.com/naihe138/GraphQL-demo/master/view-demo/addcourse.gif)
 
 
 * FE-demo
 
-![](http://img.store.naice.me/demo.gif)
+![](https://raw.githubusercontent.com/naihe138/GraphQL-demo/master/view-demo/demo.gif)
 
 ## 使用方法
 
